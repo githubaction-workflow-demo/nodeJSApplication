@@ -1,4 +1,4 @@
-name: Artifact
+name: Containerizing NodeJS Application
 on:
     push:
         branches: 
