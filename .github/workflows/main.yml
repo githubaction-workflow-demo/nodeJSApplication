@@ -71,6 +71,7 @@ jobs:
                   env:
                       IMG_NAME: reactjsnodeapp-01
                       DCKR_USER_NAME: vardhanreddy035
+                      IMG_VERSION: '0.0.1'
         
                   needs: BuildJob 
                   runs-on: 'ubuntu-latest'
@@ -88,11 +89,11 @@ jobs:
                                   password: ${{ secrets.DOCKERHUB_TOKEN }}
                           - name: Docker image Build
                             run: |
-                                  docker build --file Dockerfile --tag ${{env.IMG_NAME}}:0.0.0.1 .
+                                  docker build --file Dockerfile --tag ${{env.IMG_NAME}}:${{env.IMG_VERSION}} .
  
                           - name: Tagging Docker image
-                            run: docker tag ${{env.IMG_NAME}}:0.0.0.1  ${{env.DCKR_USER_NAME}}/${{env.IMG_NAME}}:0.0.0.1
+                            run: docker tag ${{env.IMG_NAME}}:${{env.IMG_VERSION}}  ${{env.DCKR_USER_NAME}}/${{env.IMG_NAME}}:${{env.IMG_VERSION}}
                           - name: docker image push into docker hub
                             run: |
-                                    docker push ${{env.DCKR_USER_NAME}}/${{env.IMG_NAME}}:0.0.0.1
+                                    docker push ${{env.DCKR_USER_NAME}}/${{env.IMG_NAME}}:${{env.IMG_VERSION}}
                                     docker image ls   
