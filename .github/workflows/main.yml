@@ -71,7 +71,7 @@ jobs:
                   env:
                       IMG_NAME: reactjsnodeapp-01
                       DCKR_USER_NAME: vardhanreddy035
-                      IMG_VERSION: '0.0.4'
+                      IMG_VERSION: '0.0.5'
         
                   needs: BuildJob 
                   runs-on: 'ubuntu-latest'
